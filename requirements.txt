@@ -1,4 +1,5 @@
 fastapi
+uvicorn
 flake8
 black
 pytest

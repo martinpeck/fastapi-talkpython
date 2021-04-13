@@ -4,6 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
+        {
+            "name": "chapter5",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/ch05-realistic-api",
+            "module": "uvicorn",
+            "args": [
+                "main:api",
+                "--reload"
+            ],
+            "jinja": true
+        },
         {
             "name": "chapter3",
             "type": "python",

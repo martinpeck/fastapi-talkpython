@@ -1,9 +1,13 @@
 GET http://127.0.0.1:8000/ HTTP/1.1
 
 ###
-
+# Happy Path
 GET http://127.0.0.1:8000/api/calculate?x=1&y=2&z=3 HTTP/1.1
 
 ###
-
+# Missing 'y' parameter
 GET http://127.0.0.1:8000/api/calculate?x=1&z=3 HTTP/1.1
+
+###
+# Parameter 'z' is zero
+GET http://127.0.0.1:8000/api/calculate?x=1&y=2&z=0 HTTP/1.1

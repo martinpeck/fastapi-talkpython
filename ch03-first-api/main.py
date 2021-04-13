@@ -1,9 +1,9 @@
 from typing import Optional
-import fastapi
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 import uvicorn
 
-api = fastapi.FastAPI()
+api = FastAPI()
 
 
 @api.get("/")
@@ -18,14 +18,14 @@ def index():
         "</body>"
         "</html>"
     )
-    return body
+    return HTMLResponse(body)
 
 
 @api.get("/api/calculate")
 def calculate(x: int, y: int, z: Optional[int] = None):
 
     if z is not None and z == 0:
-        return JSONResponse(content={"error": "z must not be zero"}, status_code=400)
+        raise HTTPException(400, "z must not be zero")        
 
     value = x + y
 
